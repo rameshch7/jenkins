@@ -2,15 +2,20 @@ pipeline{
   agent any
 
   stages{
-    stage('hello'){
+    stage('Hello'){
       steps{
-       echo 'Hello World'
+        sh 'echo Hello'
+        sh 'echo Bye'
+        print 'hello'
+        script{
+          println "Hello World"
+        }
+       }
       }
     }
-    stage('hello1'){
-          steps{
-           echo 'Hello World'
-          }
-        }
-  }
+  post{
+    always{
+      println 'post step'
+      }
+    }
 }
